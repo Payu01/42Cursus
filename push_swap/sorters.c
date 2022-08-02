@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:49:25 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/02 12:01:52 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/02 12:07:59 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,4 @@ void	sort_3(t_stk **a, t_stk **b, int len, t_board *b)
 	int min;
 
 	tmp = get_to_bottom(a);
-	min;
 }
