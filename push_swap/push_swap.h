@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:04:41 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/02 12:17:54 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/03 09:39:41 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,8 @@ int		sort_checker(t_stk **a, int len);
 void	short_sort(t_board **board, t_stk **a, t_stk **b, int len);
 int		search_min(t_stk **stk);
 int		search_max(t_stk **stk);
+void	select_action(t_stk **a, t_stk **b, int act, t_board *board);
+void	second_actions(t_stk **a, t_stk **b, int act, t_board *board);
+void	third_actions(t_stk **a, t_stk **b, int act, t_board *board);
 
 #endif
