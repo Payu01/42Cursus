@@ -6,40 +6,52 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 12:21:14 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/02 17:19:21 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/03 09:23:50 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void third_actions(t_stk **a, t_stk **b, int act, t_board *board)
+void	third_actions(t_stk **a, t_stk **b, int act, t_board *board)
 {
-	t_stk *tmp;
+	t_stk	*tmp;
 
 	tmp = NULL;
-	if (c == 7 && list_size(*b) > 1)
+	if (act == 7 && list_size(*a) > 1)
 	{
-		
+		ft_putstr_fd("rra\n", board->fd);
+		rr(a, tmp);
 	}
-	else if (c == 8 && list_size(*a) > 1)
+	else if (act == 8 && list_size(*b) > 1)
+	{
+		ft_putstr_fd("rrb\n", board->fd);
+		rr(b);
+		free(tmp);
+	}
 }
 
-void second_actions(t_stk **a, t_stk **b, int act, t_board *board)
+void	second_actions(t_stk **a, t_stk **b, int act, t_board *board)
 {
-	t_stk *tmp;
+	t_stk	*tmp;
 
 	tmp = NULL;
-	if(act == 4)
+	if (act == 4)
 	{
-		
+		ft_putstr_fd("pb\n", board->fd);
+		push(b, a, tmp);
+		free(tmp);
 	}
-	else if(act == 5 && list_size(*b) > 1)
+	else if (act == 5)
 	{
-		
+		ft_putstr_fd("ra\n", board->fd);
+		r(a);
+		free(tmp);
 	}
-	else if(act == 6 && list_size(*b) >1)
+	else if (act == 6 && list_size(*b) > 1)
 	{
-
+		ft_putstr_fd("rb\n", board->fd);
+		r(b);
+		free(tmp);
 	}
 	else
 		third_actions(a, b, act, board);
@@ -50,22 +62,21 @@ void	select_action(t_stk **a, t_stk **b, int act, t_board *board)
 	t_stk	*tmp;
 
 	tmp = NULL;
-	if (act == 1)
+	if (c == 1 && list_size(*b) > 1)
 	{
-		ft_putstr_fd("pb\n", board->fd);
+		ft_putstr_fd("sa\n", board->fd);
+		swap(a);
+	}
+	else if (c == 2 && list_size(*a) > 1)
+	{
+		ft_putstr_fd("sb\n", board->fd);
+		swap(b);
+	}
+	else if (act == 3)
+	{
+		ft_putstr_fd("pa\n", board->fd);
 		push(a, b, tmp);
 		free(tmp);
-	}
-	else if (act == 2)
-	{
-		ft_putstr_fd("ra\n", board->fd);
-		r(a);
-		free(tmp);
-	}
-	else if (act == 3 && list_size(*a) > 1)
-	{
-		ft_putstr_fd("rra\n", board->fd);
-		rr(a, tmp);
 	}
 	else
 		second_actions(a, b, act, b);
