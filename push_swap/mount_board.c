@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 12:08:29 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/06/21 13:22:33 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/05 10:56:53 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_board	*mount_board(t_board *b)
 {
 	b = (t_board *)malloc(sizeof(t_board));
 	if (!b)
-		error();
+		error_display(0);
 	b->a = NULL;
 	b->b = NULL;
 	b->len = 0;

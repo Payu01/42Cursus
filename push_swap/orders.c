@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 11:52:07 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/07/28 12:08:00 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/05 11:08:58 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ void	push(t_stk **giver, t_stk **receiver, t_stk *tmp)
 	}
 }
 
-t_stk	*get_to_bottom(t_stk *stk)
+t_stk	*get_to_bottom(t_stk **stk)
 {
 	t_stk	*tmp;
 
-	tmp = stk;
+	tmp = *stk;
 	while (tmp->nxt)
 		tmp = tmp->nxt;
 	return (tmp);

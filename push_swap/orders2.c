@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:52:36 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/07/28 12:34:04 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/05 11:00:12 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	add_exs(t_stk **stk)
 	while (tmp1->nxt)
 		tmp1 = tmp1->nxt;
 	tmp1->nxt = tmp2;
-	tmp1->nxt->num = tmp1;
+	tmp1->nxt->num = tmp1->num;
 	tmp1->nxt->nxt = NULL;
 }
 

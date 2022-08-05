@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 12:21:14 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/03 10:00:34 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/05 10:59:40 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	third_actions(t_stk **a, t_stk **b, int act, t_board *board)
 	else if (act == 8 && list_size(*b) > 1)
 	{
 		ft_putstr_fd("rrb\n", board->fd);
-		rr(b);
+		rr(b, tmp);
 		free(tmp);
 	}
 }
@@ -62,12 +62,12 @@ void	select_action(t_stk **a, t_stk **b, int act, t_board *board)
 	t_stk	*tmp;
 
 	tmp = NULL;
-	if (c == 1 && list_size(*b) > 1)
+	if (act == 1 && list_size(*b) > 1)
 	{
 		ft_putstr_fd("sa\n", board->fd);
 		swap(a);
 	}
-	else if (c == 2 && list_size(*a) > 1)
+	else if (act == 2 && list_size(*a) > 1)
 	{
 		ft_putstr_fd("sb\n", board->fd);
 		swap(b);
@@ -79,5 +79,5 @@ void	select_action(t_stk **a, t_stk **b, int act, t_board *board)
 		free(tmp);
 	}
 	else
-		second_actions(a, b, act, b);
+		second_actions(a, b, act, board);
 }

@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 11:02:50 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/07/14 18:01:06 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/05 11:10:24 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,21 @@ void	swapping_time(t_board *board, int argc, char **argv)
 	check_dup(board->split);
 	check_num(board->split);
 	board->a = fill_stack(board, board->split, stk);
-	if (sort_checker(&board->a,list_size(board->a)) == 1)
-		error(2);
+	if (sort_checker(&board->a, list_size(board->a)) == 1)
+		error_display(2);
 	board->len = list_size(board->a);
 	free_stk(&stk);
 	if (board->len <= 10)
 		short_sort(board, &(board->a), &(board->b), board->len);
-	else
-	//
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_board	*board;
 
 	board = NULL;
 	if (argc < 2)
-		error();
+		error_display(2);
 	else
 	{
 		board = mount_board(board);

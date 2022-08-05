@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 14:15:37 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/07/14 10:23:57 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/05 10:53:27 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	check_dup(char **argv)
 		{
 			if (j == i)
 				j++;
-			else if (ft_strcmp(dup, argv[i]) == 0)
+			else if (ft_strncmp(dup, argv[i], ft_strlen(dup)) == 0)
 			{
 				free(&dup);
 				error_display(1);
@@ -68,11 +68,11 @@ void	check_num(char **argv)
 	while (argv[i])
 	{
 		j = 0;
-		if (!(argv[i] >= INT_MIN && argv[i] <= INT_MAX))
+		if (!(ft_atoi(argv[i]) >= INT_MIN && ft_atoi(argv[i]) <= INT_MAX))
 			error_display(2);
 		while (argv[i][j])
 		{
-			if (ft_isalpha(argv[j]) == 1 || argv[i][j] == '.'
+			if (argv[i][j] == 1 || argv[i][j] == '.'
 			|| ((argv[i][j]) == '-' && (argv[i][j +1]) == '\0')
 			|| ((argv[i][j]) == '+' && argv[i][j + 1]) == '\0')
 				error_display(2);

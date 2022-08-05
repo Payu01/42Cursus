@@ -6,7 +6,7 @@
 #    By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/24 11:15:08 by fmunoz-a          #+#    #+#              #
-#    Updated: 2022/05/05 10:09:00 by fmunoz-a         ###   ########.fr        #
+#    Updated: 2022/08/05 11:33:01 by fmunoz-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,21 +56,20 @@ BONUS_SRCS = ft_lstnew_bonus.c \
 		ft_lstclear_bonus.c \
 		ft_lstiter_bonus.c \
 		ft_lstmap_bonus.c \
-		
+
+CC= gcc
+CFLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:%.c=%.o)
 
 BONUS_OBJS = $(BONUS_SRCS:%.c=%.o)
 
-FLAGS = -Wall -Wextra -Werror
-$(NAME):
-	gcc $(FLAGS) -c $(SRCS) -I ./
-	ar rc $(NAME) $(OBJS)
-
 all: $(NAME)
 
-bonus: all
-	gcc $(FLAGS) -c $(BONUS_SRCS) -I ./
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
+
+bonus: $(BONUS_OBJS) all
 	ar rc $(NAME) $(BONUS_OBJS)
 
 clean:

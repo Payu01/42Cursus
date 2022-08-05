@@ -6,11 +6,13 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 10:34:04 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/07/28 12:29:51 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/05 11:00:34 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//int	search_pivot()
 
 int	search_max(t_stk **stk)
 {
