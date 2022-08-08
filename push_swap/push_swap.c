@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 11:02:50 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/05 11:10:24 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:41:45 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ void	swapping_time(t_board *board, int argc, char **argv)
 	free_stk(&stk);
 	if (board->len <= 10)
 		short_sort(board, &(board->a), &(board->b), board->len);
+	else
+		sort_
+	close(board->fd);
 }
 
 int	main(int argc, char **argv)
