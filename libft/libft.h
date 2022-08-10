@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 09:43:58 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/05/27 08:57:28 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/08 12:28:06 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+void	ft_free_array(char **array);
 
 //Bonus
 typedef struct s_list

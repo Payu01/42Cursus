@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:33:48 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/05 11:05:19 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/10 15:39:09 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,17 @@ void	short_sort(t_board *board, t_stk **a, t_stk **b, int len)
 		select_action(a, b, 1, board);
 	if (len <= 3)
 		sort_3(a, b, len, board);
-/* 	else if (len > 3)
+	else if (len > 3)
 	{
-		
-	} */
+		sort_over_3(a, b, len, board);
+		sort_3(a, b, len, board);
+		while ((*b))
+		{
+			tmp = *b;
+			select_action(a, b, 3, board);
+			free(tmp);
+		}
+		free_stk(b);
+	}
+	free_stk(a);
 }

@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 14:15:37 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/05 10:53:27 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/10 14:45:10 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,55 +29,44 @@ int	sort_checker(t_stk **a, int len)
 	return (1);
 }
 
-void	check_dup(char **argv)
+void	check_dup(int *argv)
 {
 	int		i;
 	int		j;
-	char	*dup;
 
 	i = 0;
 	while (argv[i])
 	{
-		dup = ft_strdup(argv[i]);
-		j = 0;
+		j = i + 1;
 		while (argv[j])
 		{
-			if (j == i)
-				j++;
-			else if (ft_strncmp(dup, argv[i], ft_strlen(dup)) == 0)
-			{
-				free(&dup);
+			if (argv[i] == argv[j])
 				error_display(1);
-			}
-			else
-				j++;
-		}
-		free(&dup);
-		i++;
-	}
-}
-
-void	check_num(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	if (!argv[0])
-		error_display(2);
-	while (argv[i])
-	{
-		j = 0;
-		if (!(ft_atoi(argv[i]) >= INT_MIN && ft_atoi(argv[i]) <= INT_MAX))
-			error_display(2);
-		while (argv[i][j])
-		{
-			if (argv[i][j] == 1 || argv[i][j] == '.'
-			|| ((argv[i][j]) == '-' && (argv[i][j +1]) == '\0')
-			|| ((argv[i][j]) == '+' && argv[i][j + 1]) == '\0')
-				error_display(2);
 			j++;
 		}
 		i++;
 	}
 }
+
+/* void	check_num(int *argv)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	if (!argv[0])
+		error_display(2);
+	while (argv[++i])
+	{
+		j = -1;
+		if (!(ft_atoi(argv[i]) >= INT_MIN && ft_atoi(argv[i]) <= INT_MAX))
+			error_display(2);
+		while (argv[++i][++j])
+		{
+			if (argv[i][j] == 1 || argv[i][j] == '.'
+			|| ((argv[i][j]) == '-' && (argv[i][j +1]) == '\0')
+			|| ((argv[i][j]) == '+' && argv[i][j + 1]) == '\0')
+				error_display(2);
+		}
+	}
+} */

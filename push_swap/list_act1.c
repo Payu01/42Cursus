@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 10:33:01 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/07/08 10:18:34 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/10 09:42:26 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	add_bottom(t_stk **top, t_stk *new)
 
 void	add_top(t_stk **top, t_stk *new)
 {
-
 	new->nxt = (*top);
 	new->prv = NULL;
 	if ((*top) != NULL)

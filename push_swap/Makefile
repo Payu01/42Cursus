@@ -6,11 +6,9 @@
 #    By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/27 10:11:08 by fmunoz-a          #+#    #+#              #
-#    Updated: 2022/08/05 12:40:23 by fmunoz-a         ###   ########.fr        #
+#    Updated: 2022/08/10 09:41:36 by fmunoz-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-
 
 NAME    =   push_swap
 CC      = gcc
@@ -27,7 +25,8 @@ SRCS = push_swap.c \
 		orders2.c \
 		searchers.c \
 		sort_selector.c \
-		sorters.c 
+		sorters.c \
+		num_sort.c \
 
 
 #OBJS        =   ${SRCS:.c=.o}

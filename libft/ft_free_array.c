@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.c                                           :+:      :+:    :+:   */
+/*   ft_free_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 09:50:41 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/10 14:21:36 by fmunoz-a         ###   ########.fr       */
+/*   Created: 2022/08/08 12:27:19 by fmunoz-a          #+#    #+#             */
+/*   Updated: 2022/08/08 12:27:49 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_stk	*fill_stack(t_board *b, int *split, t_stk *tmp)
+void	ft_free_array(char **array)
 {
 	int	i;
 
-	i = -1;
-	while (split[++i])
+	i = 0;
+	while (array[i])
 	{
-		tmp = malloc(sizeof(t_stk));
-		if (!tmp)
-			return (NULL);
-		tmp->num = split[i];
-		if (tmp->num > 2147483647 || tmp->num < -2147483648)
-			error_display(1);
-		tmp->nxt = NULL;
-		tmp->prv = NULL;
-		add_bottom(&b->a, tmp);
-		tmp = NULL;
+		free(array[i]);
+		i++;
 	}
-	return (b->a);
+	free(array);
 }

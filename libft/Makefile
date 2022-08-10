@@ -6,7 +6,7 @@
 #    By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/24 11:15:08 by fmunoz-a          #+#    #+#              #
-#    Updated: 2022/05/05 10:09:00 by fmunoz-a         ###   ########.fr        #
+#    Updated: 2022/08/08 12:28:28 by fmunoz-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRCS = ft_atoi.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
+		ft_free_array.c \
 
 BONUS_SRCS = ft_lstnew_bonus.c \
 		ft_lstadd_front_bonus.c \
