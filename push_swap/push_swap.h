@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:04:41 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/10 15:40:06 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/12 12:48:21 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
@@ -56,13 +57,13 @@ void	r(t_stk **stk);
 void	add_exs(t_stk **stk);
 void	check_dup(int *argv);
 void	add_exs(t_stk **stk);
-t_stk	*get_to_bottom(t_stk **stk);
+t_stk	*get_to_bottom(t_stk *stk);
 int		sort_checker(t_stk **a, int len);
 int		lst_nbr(t_stk **stk, int base);
 void	nbr_swap(t_stk *a, t_stk *b);
 void	short_sort(t_board *board, t_stk **a, t_stk **b, int len);
-int		search_min(t_stk **stk);
-int		search_max(t_stk **stk);
+int		search_min(t_stk *stk);
+int		search_max(t_stk *stk);
 void	select_action(t_stk **a, t_stk **b, int act, t_board *board);
 void	second_actions(t_stk **a, t_stk **b, int act, t_board *board);
 void	third_actions(t_stk **a, t_stk **b, int act, t_board *board);
@@ -81,5 +82,7 @@ size_t	wrdcount(char const *s, char c);
 char	**freedata(char **strstr, size_t i);
 char	**int_asigner(char const *s, char c, char **strstr);
 int		*int_split(char const *s, char c);
+int		get_current_order(t_stk *a, t_stk *b, char c);
+void	radix_sort(t_stk **a, t_stk **b, int right_shift, t_board *board);
 
 #endif

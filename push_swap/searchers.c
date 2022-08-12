@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 10:34:04 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/08 11:51:58 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/10 16:15:41 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ int	search_pivot(t_stk *stk)
 	return (lst_nbr(&tmp, pvt));
 }
 
-int	search_max(t_stk **stk)
+int	search_max(t_stk *stk)
 {
 	t_stk	*tmp;
 	int		max;
 
-	tmp = *stk;
+	tmp = stk;
 	max = tmp->num;
 	while (tmp->nxt)
 	{
@@ -86,12 +86,12 @@ int	search_max(t_stk **stk)
 	return (max);
 }
 
-int	search_min(t_stk **stk)
+int	search_min(t_stk *stk)
 {
 	t_stk	*tmp;
 	int		min;
 
-	tmp = *stk;
+	tmp = stk;
 	min = tmp->num;
 	while (tmp->nxt)
 	{

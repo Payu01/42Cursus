@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:52:36 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/05 11:00:12 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/11 10:22:25 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,12 @@ t_stk	*rr_swap(t_stk *stk, t_stk *tmp)
 
 void	free_bottom(t_stk **stk)
 {
-	while ((*stk)->nxt->nxt != NULL)
+	while ((*stk))
+	{
+		if ((*stk)->nxt->nxt == NULL)
+			break ;
 		*stk = (*stk)->nxt;
+	}
 	free((*stk)->nxt);
 	(*stk)->nxt = NULL;
 }
@@ -34,7 +38,9 @@ void	rr(t_stk **stk, t_stk *tmp)
 {
 	t_stk	*a;
 
+	printf("5");
 	a = NULL;
+	tmp = NULL;
 	if (*stk)
 	{
 		tmp = (t_stk *)malloc(sizeof(t_stk));
@@ -53,12 +59,13 @@ void	add_exs(t_stk **stk)
 	t_stk	*tmp1;
 	t_stk	*tmp2;
 
+	tmp1 = NULL;
 	tmp1 = *stk;
 	tmp2 = (*stk)->prv;
 	while (tmp1->nxt)
 		tmp1 = tmp1->nxt;
 	tmp1->nxt = tmp2;
-	tmp1->nxt->num = tmp1->num;
+	tmp1->nxt->prv = tmp1;
 	tmp1->nxt->nxt = NULL;
 }
 

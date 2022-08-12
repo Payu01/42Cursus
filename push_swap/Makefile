@@ -6,7 +6,7 @@
 #    By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/27 10:11:08 by fmunoz-a          #+#    #+#              #
-#    Updated: 2022/08/10 09:41:36 by fmunoz-a         ###   ########.fr        #
+#    Updated: 2022/08/12 12:48:49 by fmunoz-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS = push_swap.c \
 		sort_selector.c \
 		sorters.c \
 		num_sort.c \
+		sorting_algo.c
 
 
 #OBJS        =   ${SRCS:.c=.o}

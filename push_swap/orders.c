@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 11:52:07 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/05 11:08:58 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/12 10:03:33 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	push(t_stk **giver, t_stk **receiver, t_stk *tmp)
 	tmp = NULL;
 	if (*receiver == NULL && *giver)
 	{
-		*receiver = malloc(sizeof(t_stk));
+		*receiver = (t_stk *)malloc(sizeof(t_stk));
 		(*receiver)->prv = NULL;
 		(*receiver)->num = (*giver)->num;
 		(*receiver)->nxt = NULL;
@@ -42,7 +42,7 @@ void	push(t_stk **giver, t_stk **receiver, t_stk *tmp)
 	{
 		if (*giver)
 		{
-			tmp = malloc(sizeof(t_stk));
+			tmp = (t_stk *)malloc(sizeof(t_stk));
 			tmp->num = (*giver)->num;
 			tmp->nxt = NULL;
 			tmp->prv = NULL;
@@ -52,12 +52,12 @@ void	push(t_stk **giver, t_stk **receiver, t_stk *tmp)
 	}
 }
 
-t_stk	*get_to_bottom(t_stk **stk)
+t_stk	*get_to_bottom(t_stk *stk)
 {
 	t_stk	*tmp;
 
-	tmp = *stk;
-	while (tmp->nxt)
-		tmp = tmp->nxt;
+	tmp = stk;
+	while ((tmp)->nxt)
+		(tmp) = (tmp)->nxt;
 	return (tmp);
 }

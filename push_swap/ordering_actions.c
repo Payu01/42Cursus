@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 12:21:14 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/10 15:38:44 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/12 10:04:20 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	second_actions(t_stk **a, t_stk **b, int act, t_board *board)
 	if (act == 4)
 	{
 		ft_putstr_fd("pb\n", board->fd);
-		push(b, a, tmp);
+		push(a, b, tmp);
 		free(tmp);
 	}
 	else if (act == 5)
@@ -62,12 +62,12 @@ void	select_action(t_stk **a, t_stk **b, int act, t_board *board)
 	t_stk	*tmp;
 
 	tmp = NULL;
-	if (act == 1 && list_size(*b) > 1)
+	if (act == 1 && list_size(*a) > 1)
 	{
 		ft_putstr_fd("sa\n", board->fd);
 		swap(a);
 	}
-	else if (act == 2 && list_size(*a) > 1)
+	else if (act == 2 && list_size(*b) > 1)
 	{
 		ft_putstr_fd("sb\n", board->fd);
 		swap(b);
@@ -75,7 +75,7 @@ void	select_action(t_stk **a, t_stk **b, int act, t_board *board)
 	else if (act == 3)
 	{
 		ft_putstr_fd("pa\n", board->fd);
-		push(a, b, tmp);
+		push(b, a, tmp);
 		free(tmp);
 	}
 	else
