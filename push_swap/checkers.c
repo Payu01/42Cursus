@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 14:15:37 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/12 12:45:03 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/15 08:57:03 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	sort_checker(t_stk **a, int len)
 	return (1);
 }
 
-int	get_current_order(t_stk *a, t_stk *b, char c)
+/* int	get_current_order(t_stk *a, t_stk *b, char c)
 {
 	int	len;
 	int	cnt;
@@ -56,7 +56,7 @@ int	get_current_order(t_stk *a, t_stk *b, char c)
 		b = b->nxt;
 	}
 	return (cnt);
-}
+} */
 
 void	check_dup(int *argv)
 {

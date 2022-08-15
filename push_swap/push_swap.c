@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 11:02:50 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/12 12:47:46 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/15 13:18:37 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ void	swapping_time(t_board *board, int argc, char **argv)
 	if (sort_checker(&board->a, list_size(board->a)) == 1)
 		error_display(2);
 	board->len = list_size(board->a);
+	index_asigner(&(board->a));
 	free_stk(&stk);
 	if (board->len <= 10)
 		short_sort(board, &(board->a), &(board->b), board->len);
 	else
-		radix_sort(&(board->a), &(board->b), 0, board);
+		radix_sort(&(board->a), &(board->b), board);
 	if (argc == 2 || (argc == 3 && board->fd != 1))
 		//free_array(board->split);
 	close(board->fd);

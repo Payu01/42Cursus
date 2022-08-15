@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:04:41 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/12 12:48:21 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/15 12:31:37 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
+# include <fcntl.h>
 # include "libft/libft.h"
 
 typedef struct s_stack
 {
 	int				num;
+	int				index;
 	struct s_stack	*nxt;
 	struct s_stack	*prv;
 }	t_stk;
@@ -82,7 +84,7 @@ size_t	wrdcount(char const *s, char c);
 char	**freedata(char **strstr, size_t i);
 char	**int_asigner(char const *s, char c, char **strstr);
 int		*int_split(char const *s, char c);
-int		get_current_order(t_stk *a, t_stk *b, char c);
-void	radix_sort(t_stk **a, t_stk **b, int right_shift, t_board *board);
+void	radix_sort(t_stk **stka, t_stk **stkb, t_board *board);
+void	index_asigner(t_stk **stk);
 
 #endif

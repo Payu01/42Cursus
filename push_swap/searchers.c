@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 10:34:04 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/10 16:15:41 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/15 10:40:21 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	search_min(t_stk *stk)
 
 	tmp = stk;
 	min = tmp->num;
-	while (tmp->nxt)
+	while (tmp)
 	{
 		if (tmp->num < min)
 			min = tmp->num;

@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:30:09 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/12 13:03:28 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/15 13:18:25 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,51 +43,69 @@
 	return (radix_sort(a, b, right_shift + 1, board));
 } */
 
-static int	get_max_bits(t_list **stack)
+void	printlist(t_stk **list_a)
 {
-	t_list	*head;
+	int	a;
+
+	while (list_a)
+	{
+		if (list_a)
+		{
+			if (list_a)
+				a = (*list_a)->index;
+			(*list_a) = (*list_a)->nxt;
+		}
+		else
+			a = 0;
+		printf(" %d \n", a);
+	}
+}
+
+static int	get_max_bits(t_stk **stack)
+{
+	t_stk	*tmp;
 	int		max;
 	int		max_bits;
 
-	head = *stack;
-	max = head->index;
+	tmp = *stack;
+	max = tmp->index;
 	max_bits = 0;
-	while (head)
+	while (tmp)
 	{
-		if (head->index > max)
-			max = head->index;
-		head = head->next;
+		if (tmp->index > max)
+			max = tmp->index;
+		tmp = tmp->nxt;
 	}
 	while ((max >> max_bits) != 0)
 		max_bits++;
 	return (max_bits);
 }
 
-void	radix_sort(t_list **stack_a, t_list **stack_b)
+void	radix_sort(t_stk **stka, t_stk **stkb, t_board *board)
 {
-	t_list	*head_a;
+	t_stk	*a;
 	int		i;
 	int		j;
 	int		size;
 	int		max_bits;
 
 	i = 0;
-	head_a = *stack_a;
-	size = list_size(head_a);
-	max_bits = get_max_bits(stack_a);
+	a = *stka;
+	size = list_size(a);
+	max_bits = get_max_bits(stka);
 	while (i < max_bits)
 	{
 		j = 0;
 		while (j++ < size)
 		{
-			head_a = *stack_a;
-			if (((head_a->index >> i) & 1) == 1)
-				ra(stack_a);
+			a = *stka;
+			if (((a->index >> i) & 1) == 1)
+				select_action(stka, stkb, 5, board);
 			else
-				pb(stack_a, stack_b);
+				select_action(stka, stkb, 4, board);
 		}
-		while (ft_lstsize(*stack_b) != 0)
-			pa(stack_a, stack_b);
+		while (list_size(*stkb) != 0)
+			select_action(stka, stkb, 3, board);
 		i++;
 	}
 }
