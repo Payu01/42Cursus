@@ -6,19 +6,19 @@
 #    By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/27 10:11:08 by fmunoz-a          #+#    #+#              #
-#    Updated: 2022/08/12 12:48:49 by fmunoz-a         ###   ########.fr        #
+#    Updated: 2022/08/16 20:10:17 by fmunoz-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME    =   push_swap
-CC      = gcc
-CFLAGS  = -Werror -Wall -Wextra
+NAME = push_swap
+CC = gcc
+CFLAGS = -Werror -Wall -Wextra
 
 SRCS = push_swap.c \
 		checkers.c \
 		error.c \
 		filler.c \
-		list_act1.c \
+		list_act.c \
 		mount_board.c \
 		ordering_actions.c \
 		orders.c \
@@ -27,19 +27,25 @@ SRCS = push_swap.c \
 		sort_selector.c \
 		sorters.c \
 		num_sort.c \
-		sorting_algo.c
+		sorting_algo.c \
+		smart_selector_big.c \
 
+OBJS = ${SRCS:.c=.o}
 
-#OBJS        =   ${SRCS:.c=.o}
-$(NAME): #$(OBJS)
+$(NAME): $(OBJS)
 	make -C ./libft
-	${CC} ${CFLAGS} $(SRCS) -I ./libft -L ./libft -l ft -o ${NAME}
+	${CC} ${CFLAGS} $(OBJS) -I ./libft -L ./libft -l ft -o ${NAME}
+
 all: $(NAME)
+
 clean:
 	make clean -C ./libft
 	rm -f $(OBJS)
+
 fclean: clean
 	make fclean -C ./libft
 	rm -f $(NAME)
+
 re: fclean all
-.PHONY:     all clean fclean re
+
+.PHONY: all clean fclean re

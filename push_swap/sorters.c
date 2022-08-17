@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:49:25 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/15 10:39:59 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/16 19:32:27 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	sort_3(t_stk **a, t_stk **b, int len, t_board *board)
 
 	tmp = get_to_bottom(*a);
 	min = search_min(*a);
-	printf("%i\n", min);
 	while (sort_checker(a, len) == 0)
 	{
 		if ((*a)->num < (*a)->nxt->num && tmp->num == min)

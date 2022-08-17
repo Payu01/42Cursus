@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:52:36 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/15 13:08:49 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/16 20:26:49 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_stk	*rr_swap(t_stk *stk, t_stk *tmp)
 	while (stk->nxt)
 		stk = stk->nxt;
 	tmp->num = stk->num;
-	tmp->index = stk->index;
 	tmp->nxt = NULL;
 	tmp->prv = NULL;
 	return (tmp);
@@ -39,7 +38,6 @@ void	rr(t_stk **stk, t_stk *tmp)
 {
 	t_stk	*a;
 
-	printf("5");
 	a = NULL;
 	tmp = NULL;
 	if (*stk)

@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 15:57:23 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/16 15:47:53 by fmunoz-a         ###   ########.fr       */
+/*   Created: 2022/08/16 19:53:52 by fmunoz-a          #+#    #+#             */
+/*   Updated: 2022/08/16 20:03:27 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int	sign;
-	int	int_to_return;
-	int	i;
+	size_t	i;
 
 	i = 0;
-	sign = 1;
-	int_to_return = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
+	while (s1[i] || s2[i])
 	{
-		sign = -1;
-	}
-	if (str[i] == '-' || str[i] == '+')
-		++i;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		int_to_return = (int_to_return * 10) + (str[i] - '0');
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	int_to_return *= sign;
-	return (int_to_return);
+	return (0);
 }

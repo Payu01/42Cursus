@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 12:55:06 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/05 10:55:23 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/16 18:31:46 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ void	error_display(int i)
 		ft_putstr_fd("Error: duplicate numbers\n", 1);
 	else if (i == 2)
 		ft_putstr_fd("Error: invalid arguments\n", 1);
+	else if (i == 3)
+		ft_putstr_fd("Error: overflow\n", 1);
 	exit(EXIT_SUCCESS);
 }

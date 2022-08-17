@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_act1.c                                        :+:      :+:    :+:   */
+/*   list_act.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 10:33:01 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/10 09:42:26 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/16 18:57:25 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,25 @@ void	add_top(t_stk **top, t_stk *new)
 	if ((*top) != NULL)
 		(*top)->prv = new;
 	(*top) = new;
-}	
+}
+
+t_stk	*dup_stk(t_stk *stk)
+{
+	t_stk	*tmp1;
+	t_stk	*tmp2;
+
+	tmp1 = ft_calloc(1, sizeof(t_stk));
+	tmp2 = tmp1;
+	while (stk)
+	{
+		tmp1->num = stk->num;
+		if (stk->nxt)
+		{
+			tmp1->nxt = ft_calloc(1, sizeof(t_stk));
+			tmp1 = tmp1->nxt;
+		}
+		stk = stk->nxt;
+	}
+	tmp1 = tmp2;
+	return (tmp1);
+}

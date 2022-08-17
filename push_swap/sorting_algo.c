@@ -6,106 +6,122 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:30:09 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/15 13:18:25 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/16 20:09:00 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* void	radix_sort(t_stk **a, t_stk **b, int right_shift, t_board *board)
+int	check_pivot(t_stk *a, int pivot, int opt)
 {
-	int	i;
-	int	len;
-	int	limit;
-	int	max_len;
-
-	max_len = board->len;
-	if (right_shift > max_len || sort_checker(a, board->len))
+	while (a)
 	{
-		while (list_size(*b))
-			select_action(a, b, 3, board);
-		return ;
-	}
-	i = -1;
-	len = list_size(*a);
-	limit = get_current_order(*a, *b, 'a');
-	while (++i < len - limit && !sort_checker(a, board->len))
-	{
-		if ((*a)->num >> right_shift & 1)
-			select_action(b, a, 4, board);
-		else
-			select_action(a, b, 5, board);
-	}
-	i = -1;
-	len = list_size(*b);
-	while (++i < len - get_current_order(*a, *b, 'b'))
-		select_action(a, b, 3, board);
-	return (radix_sort(a, b, right_shift + 1, board));
-} */
-
-void	printlist(t_stk **list_a)
-{
-	int	a;
-
-	while (list_a)
-	{
-		if (list_a)
+		if (opt == 1)
 		{
-			if (list_a)
-				a = (*list_a)->index;
-			(*list_a) = (*list_a)->nxt;
+			if (a->num <= pivot)
+				return (1);
+			a = a->nxt;
 		}
-		else
-			a = 0;
-		printf(" %d \n", a);
+		if (opt == 2)
+		{
+			if (a->num == pivot)
+				return (1);
+			a = a->nxt;
+		}
+	}
+	return (0);
+}
+
+void	first_step(t_stk **a, t_stk **b, int len, t_board *board)
+{
+	int		i;
+	int		pivot;
+	t_stk	*tmp1;
+	t_stk	*tmp2;
+
+	i = len;
+	while (i >= ftoi(len / 4))
+	{
+		tmp1 = dup_stk(*a);
+		pivot = search_pivot(tmp1);
+		while (check_pivot((*a), pivot, 1) && (*a))
+		{
+			if ((*a)->num <= pivot)
+			{
+				tmp2 = *a;
+				select_action(a, b, 4, board);
+				i--;
+				free(tmp2);
+			}
+			else
+				smart_selector_a(a, b, board, pivot);
+		}
+		free_stk(&tmp1);
 	}
 }
 
-static int	get_max_bits(t_stk **stack)
+void	second_step(t_stk **a, t_stk **b, int len, t_board *board)
+{
+	int		min;
+	t_stk	*tmp;
+
+	tmp = NULL;
+	while (*a && !sort_checker(a, len))
+	{
+		min = search_min(*a);
+		tmp = (*a)->nxt;
+		while ((*a)->num != min && tmp && tmp->num == min)
+			select_action(a, b, 1, board);
+		while (list_size(*a) && check_pivot((*a), min, 1))
+		{
+			if ((*a)->num == min)
+			{
+				tmp = *a;
+				select_action(a, b, 4, board);
+				free(tmp);
+				len--;
+			}
+			else
+				smart_selector_a(a, b, board, min);
+		}
+	}
+}
+
+void	third_step(t_stk **a, t_stk **b, int max, t_board *board)
 {
 	t_stk	*tmp;
-	int		max;
-	int		max_bits;
 
-	tmp = *stack;
-	max = tmp->index;
-	max_bits = 0;
-	while (tmp)
+	tmp = NULL;
+	while (*b)
 	{
-		if (tmp->index > max)
-			max = tmp->index;
-		tmp = tmp->nxt;
+		max = search_max(*b);
+		while (check_pivot((*b), max, 2))
+		{
+			max = search_max(*b);
+			tmp = (*b)->nxt;
+			while ((*b)->num != max && tmp && tmp->num == max)
+				select_action(a, b, 2, board);
+			while (((*b)->num != max) && *b)
+				smart_selector_b(a, b, board, max);
+			while (*b && (*b)->num == max)
+			{
+				tmp = *b;
+				select_action(a, b, 3, board);
+				max = search_max(*b);
+				free(tmp);
+			}
+		}
 	}
-	while ((max >> max_bits) != 0)
-		max_bits++;
-	return (max_bits);
 }
 
-void	radix_sort(t_stk **stka, t_stk **stkb, t_board *board)
+void	long_sort(t_stk **a, t_stk **b, int len, t_board *board)
 {
-	t_stk	*a;
-	int		i;
-	int		j;
-	int		size;
-	int		max_bits;
+	int	max;
 
-	i = 0;
-	a = *stka;
-	size = list_size(a);
-	max_bits = get_max_bits(stka);
-	while (i < max_bits)
-	{
-		j = 0;
-		while (j++ < size)
-		{
-			a = *stka;
-			if (((a->index >> i) & 1) == 1)
-				select_action(stka, stkb, 5, board);
-			else
-				select_action(stka, stkb, 4, board);
-		}
-		while (list_size(*stkb) != 0)
-			select_action(stka, stkb, 3, board);
-		i++;
-	}
+	max = 0;
+	first_step(a, b, len, board);
+	second_step(a, b, len, board);
+	third_step(a, b, max, board);
+	free_stk(a);
+	free_stk(b);
 }

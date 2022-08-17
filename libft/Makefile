@@ -6,7 +6,7 @@
 #    By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/24 11:15:08 by fmunoz-a          #+#    #+#              #
-#    Updated: 2022/08/08 12:28:28 by fmunoz-a         ###   ########.fr        #
+#    Updated: 2022/08/16 20:04:12 by fmunoz-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS = ft_atoi.c \
 		ft_strlcat.c \
 		ft_strlcpy.c \
 		ft_strlen.c \
+		ft_strcmp.c \
 		ft_strncmp.c \
 		ft_strnstr.c \
 		ft_strrchr.c \

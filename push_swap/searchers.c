@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 10:34:04 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/15 10:40:21 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/16 20:50:21 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	search_base(t_stk *stk, int num, int option)
 			if (stk->num <= num)
 				return (i);
 			stk = stk->nxt;
+			i++;
 		}
 	}
 	if (option == 2)
@@ -45,9 +46,8 @@ int	ftoi(float num)
 
 	tmp = (int)num;
 	if ((num - tmp) >= 0.5)
-		return ((int)num + 1);
-	else
-		return ((int)num);
+		tmp = tmp + 1;
+	return (tmp);
 }
 
 int	search_pivot(t_stk *stk)
@@ -72,16 +72,22 @@ int	search_pivot(t_stk *stk)
 
 int	search_max(t_stk *stk)
 {
-	t_stk	*tmp;
 	int		max;
+	t_stk	*tmp;
 
-	tmp = stk;
-	max = tmp->num;
-	while (tmp->nxt)
+	max = 0;
+	tmp = NULL;
+	if (stk)
 	{
-		if (tmp->num > max)
-			max = tmp->num;
-		tmp = tmp->nxt;
+		max = stk->num;
+		tmp = stk;
+		while (stk)
+		{
+			if (stk->num >= max)
+				max = stk->num;
+			stk = stk->nxt;
+		}
+		stk = tmp;
 	}
 	return (max);
 }

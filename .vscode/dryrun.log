@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/System/Volumes/Data/sgoinfre/goinfre/Perso/fmunoz-a/42Cursus'
+make: Leaving directory `/System/Volumes/Data/sgoinfre/goinfre/Perso/fmunoz-a/42Cursus'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
