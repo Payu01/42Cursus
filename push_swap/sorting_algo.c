@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:30:09 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/16 20:09:00 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/17 13:04:31 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	first_step(t_stk **a, t_stk **b, int len, t_board *board)
 	t_stk	*tmp2;
 
 	i = len;
-	while (i >= ftoi(len / 4))
+	while (i > ftoi(len / 16))
 	{
 		tmp1 = dup_stk(*a);
 		pivot = search_pivot(tmp1);

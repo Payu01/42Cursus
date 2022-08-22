@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:04:41 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/16 20:02:12 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/22 10:08:11 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 typedef struct s_stack
 {
 	int				num;
+	int				index;
 	struct s_stack	*nxt;
 	struct s_stack	*prv;
 }	t_stk;
@@ -42,13 +43,14 @@ typedef struct s_board
 	t_stk	*b;
 }	t_board;
 
-void		error_display(int i);
+void		error_display();
 void		check_dup(char **argv);
 int			check_numbers(char **argv);
 long long	ft_atoll(const char *str);
 
 t_board		*mount_board(t_board *b);
 t_stk		*fill_stack(t_board *b, char **split, t_stk *tmp);
+void		index_stack(t_stk **stack);
 
 t_stk		*sorter(t_stk *stk);
 int			sort_checker(t_stk **a, int len);
@@ -58,6 +60,7 @@ void		sort_3_actions(t_stk **a, t_stk **b, int act, t_board *board);
 void		smart_selector(t_stk **a, t_stk **b, t_board *board, int min);
 void		sort_over_3(t_stk **a, t_stk **b, int len, t_board *board);
 void		long_sort(t_stk **a, t_stk **b, int len, t_board *board);
+void		radix_sort(t_stk **a, t_stk **b, t_board *board);
 
 int			list_size(t_stk *a);
 void		add_bottom(t_stk **top, t_stk *new);
@@ -75,8 +78,8 @@ int			search_base(t_stk *stk, int num, int option);
 int			ftoi(float num);
 
 void		select_action(t_stk **a, t_stk **b, int act, t_board *board);
-void		smart_selector_a(t_stk **a, t_stk **b, t_board *board, int min);
-void		smart_selector_b(t_stk **a, t_stk **b, t_board *board, int min);
+void		smart_selector_a(t_stk **a, t_stk **b, t_board *board, int pivot);
+void		smart_selector_b(t_stk **a, t_stk **b, t_board *board, int pivot);
 void		push(t_stk **a, t_stk **b, t_stk *tmp);
 void		swap(t_stk **stk);
 void		nbr_swap(t_stk *a, t_stk *b);

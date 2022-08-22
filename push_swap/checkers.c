@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 14:15:37 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/16 20:39:01 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/22 10:19:16 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,19 @@ int	check_numbers(char **argv)
 	int	j;
 
 	i = -1;
-	if (!argv[1])
-		error_display(2);
+	if (!argv[0])
+		error_display();
 	while (argv[++i])
 	{
 		j = -1;
 		if (check_int(argv[i]) == 1)
-			error_display(3);
+			error_display();
 		while (argv[i][++j])
 		{
 			if (ft_isalpha(argv[i][j]) == 1 || argv[i][j] == '.'
 			|| ((argv[i][j]) == '-' && (argv[i][j +1]) == '\0')
 			|| ((argv[i][j]) == '+' && (argv[i][j + 1]) == '\0'))
-				error_display(2);
+				error_display();
 		}
 	}
 	return (1);
@@ -105,7 +105,7 @@ void	check_dup(char **argv)
 			else if (ft_strcmp(dup, argv[j]) == 0)
 			{
 				free(dup);
-				error_display(1);
+				error_display();
 			}
 			else
 				j++;

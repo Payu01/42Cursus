@@ -6,21 +6,14 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 12:55:06 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/16 18:31:46 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/22 10:08:03 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_display(int i)
+void	error_display()
 {
-	if (i == 0)
-		ft_putstr_fd("Error\n", 1);
-	else if (i == 1)
-		ft_putstr_fd("Error: duplicate numbers\n", 1);
-	else if (i == 2)
-		ft_putstr_fd("Error: invalid arguments\n", 1);
-	else if (i == 3)
-		ft_putstr_fd("Error: overflow\n", 1);
+	ft_putstr_fd("Error\n", 1);
 	exit(EXIT_SUCCESS);
 }

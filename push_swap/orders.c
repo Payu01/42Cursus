@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 11:52:07 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/16 19:32:11 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/17 10:26:46 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@ void	swap(t_stk **stk)
 {
 	int		i;
 	int		j;
+	int		indx;
 
 	if ((*stk) && (*stk)->nxt)
 	{
 		i = (*stk)->num;
 		j = (*stk)->nxt->num;
+		indx = (*stk)->index;
+		(*stk)->index = (*stk)->nxt->index;
+		(*stk)->nxt->index = indx;
 		(*stk)->num = j;
 		(*stk)->nxt->num = i;
 	}
@@ -34,6 +38,7 @@ void	push(t_stk **giver, t_stk **receiver, t_stk *tmp)
 		*receiver = (t_stk *)malloc(sizeof(t_stk));
 		(*receiver)->prv = NULL;
 		(*receiver)->num = (*giver)->num;
+		(*receiver)->index = (*giver)->index;
 		(*receiver)->nxt = NULL;
 		(*giver) = (*giver)->nxt;
 		(*giver)->prv = NULL;
@@ -44,6 +49,7 @@ void	push(t_stk **giver, t_stk **receiver, t_stk *tmp)
 		{
 			tmp = (t_stk *)malloc(sizeof(t_stk));
 			tmp->num = (*giver)->num;
+			tmp->index = (*giver)->index;
 			tmp->nxt = NULL;
 			tmp->prv = NULL;
 			add_top(receiver, tmp);
