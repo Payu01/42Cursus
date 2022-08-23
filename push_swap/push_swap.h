@@ -6,7 +6,7 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:04:41 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/22 10:08:11 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/23 13:01:33 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_board
 	t_stk	*b;
 }	t_board;
 
-void		error_display();
+void		error_display(void);
 void		check_dup(char **argv);
 int			check_numbers(char **argv);
 long long	ft_atoll(const char *str);

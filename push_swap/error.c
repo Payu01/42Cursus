@@ -6,13 +6,13 @@
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 12:55:06 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/08/22 10:08:03 by fmunoz-a         ###   ########.fr       */
+/*   Updated: 2022/08/23 13:01:15 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_display()
+void	error_display(void)
 {
 	ft_putstr_fd("Error\n", 1);
 	exit(EXIT_SUCCESS);
