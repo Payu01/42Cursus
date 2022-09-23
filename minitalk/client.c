@@ -1,51 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   a_que_pasa.c                                       :+:      :+:    :+:   */
+/*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmunoz-a <fmunoz-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 12:16:32 by fmunoz-a          #+#    #+#             */
-/*   Updated: 2022/07/07 14:52:35 by fmunoz-a         ###   ########.fr       */
+/*   Created: 2022/09/19 17:36:13 by fmunoz-a          #+#    #+#             */
+/*   Updated: 2022/09/21 17:53:50 by fmunoz-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "minitalk.h"
 
-typedef struct s_stack
+static void	sms(int pid, char *msg)
 {
-	int				num;
-	struct s_stack	*nxt;
-}	t_stk;
+	int	delay;
+	int	pos;
+	int	i;
+	int	len;
 
-void	add_rndm(t_stk *a, int c)
-{
-	t_stk	*tmp;
-	
-	while (c > 0)
+	delay = 69;
+	len = ft_strlen(msg);
+	i = -1;
+	while (++i < len)
 	{
-		tmp = malloc(sizeof(t_stk));
-		a->num = rand();
-		//printf("%i\n", a->nxt);
-		a->nxt = tmp;
-		a = tmp;
-		c--;
+		pos = -1;
+		while (++pos < 7)
+		{
+			if ((msg[i] >> pos) & 1)
+				kill(pid, SIGUSR1);
+			else
+				kill(pid, SIGUSR2);
+			usleep(delay);
+		}
 	}
-	a->nxt = NULL;
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	t_stk	*a;
-	int		c = 5;
-
-	a = malloc(sizeof(t_stk));
-	add_rndm(a, c);
-	while (a->nxt)
+	if (argc != 3)
 	{
-		printf("%i\n", a->num);
-		a = a->nxt;
+		ft_putstr_fd("Error\n", 1);
+		exit(1);
 	}
+	sms(ft_atoi(argv[1]), argv[2]);
 	return (0);
 }
